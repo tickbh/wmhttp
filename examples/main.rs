@@ -4,8 +4,6 @@ use algorithm::buf::BinaryMut;
 use async_trait::async_trait;
 use flate2::GzBuilder;
 use webparse::{HeaderName, Response};
-#[macro_use]
-extern crate serde_derive;
 use std::{
     env,
     error::Error,

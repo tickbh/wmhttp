@@ -132,6 +132,11 @@ impl Builder {
         self
     }
 
+    pub fn option(mut self, option: ClientOption) -> Self {
+        self.inner = option;
+        self
+    }
+
     pub async fn connect_by_stream(self, stream: TcpStream) -> ProtResult<Client> {
         Ok(Client::new(self.inner, MaybeHttpsStream::Http(stream)))
     }
@@ -261,13 +266,13 @@ impl Builder {
 }
 
 pub struct ClientOption {
-    http2_only: bool,
-    http2: bool,
-    settings: Settings,
-    url: Option<Url>,
-    timeout: Option<TimeoutLayer>,
-    proxies: Vec<ProxyScheme>,
-    middles: Vec<Box<dyn Middleware>>,
+    pub http2_only: bool,
+    pub http2: bool,
+    pub settings: Settings,
+    pub url: Option<Url>,
+    pub timeout: Option<TimeoutLayer>,
+    pub proxies: Vec<ProxyScheme>,
+    pub middles: Vec<Box<dyn Middleware>>,
 }
 
 impl ClientOption {

@@ -43,6 +43,7 @@ pub use self::consts::Consts;
 pub use self::http_helper::HttpHelper;
 pub use self::layer::{RateLimitLayer, TimeoutLayer, Rate};
 pub use self::middle::Middleware;
+pub use self::proxy::ProxyScheme;
 
 
 use webparse::{Request, Response};
